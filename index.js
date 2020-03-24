@@ -1,51 +1,69 @@
 const Discord = require("discord.js");
-const bot     = new Discord.Client();
-const token   = 'DISCORD_TOKEN';
+const Config  = require("./config.json");
+const FileSys = require("fs");
+const Enmap   = require("enmap");
 
+// create the bot via Discords API
+const bot      = new Discord.Client();
+bot.config     = Config;
+bot.commands   = new Enmap();
+bot.line_width = Config.line_width;
+
+bot.on("ready", () => {
+    console.log(`${bot.user.username} is online!`);
+})
+
+// load commands
+FileSys.readdir("./commands/", (err, files) => {
+    if (err) {
+        return console.error(err);
+    }
+    files.forEach(file => {
+        // check only the script files
+        if (!file.endsWith(".js")) { return; }
+
+        let properties = require(`./commands/${file}`);
+        let cmd_name = file.split(".")[0];
+        console.log(`loading command ${cmd_name}`);
+        bot.commands.set(cmd_name, properties);
+    })
+});
+
+// message handling
 bot.on('message', msg => {
+
+    // keep log for debugging
+    const user_name  = msg.author.username;    
+    const user_input = msg.content.toLowerCase();
+    console.log(`${user_name}: ${user_input}`);
     
-    const user_input   = msg.content.toLowerCase();
-    const user_name    = msg.author;
+
+    // prevent loop effects, so the bot doesn't reply to itself:
+    if (user_name == bot.user.username) {
+        return;
+    }
     
-    if (user_input == 'bot?') {
-        msg.reply('Ich bin da, ' + user_name + '!');
+    // check for maintenance/setting commands
+    if (user_input.startsWith(Config.prefix)) {
+        const args = msg.content.slice(bot.config.prefix.length).trim().split(' ');
+        const possible_command = args.shift().toLowerCase();
+        // try get the command
+        const cmd = bot.commands.get(possible_command);
+        if (!cmd) { 
+            msg.channel.send(`Ich kenne den Befehl ${cmd} nicht!`);
+            return;
+        }
+        // run the command
+        cmd.run(bot, msg, args);
     }
 
+    // check for the dice pattern
     if (/^[0-9]*\s*(w|W)[0-9]+/.test(user_input.trim())) {
-
-        const tokens = user_input.split('w');
-
-        // sanity check
-        if (tokens.length == 2) {
-            var   dice_count = parseInt(tokens[0].trim()); // how many dice?
-            const dice_sides = parseInt(tokens[1].trim()); // how many sides?
-
-            if (isNaN(dice_count)) { dice_count = 1; } // handle implicit commands like 'w20' as 1W20
-
-            var bot_answer = "";
-            var line_counter = 0;
-
-            for (var i = 0; i < dice_count; i++) {
-
-                bot_answer += Math.floor((Math.random() * dice_sides) + 1);
-
-                // append a ',' after each number BUT the last:
-                if   (i != dice_count - 1) { bot_answer += ', '; }
-                else { break; }
-
-                // check the line width and insert newlines for readability
-                line_counter++;
-                if (line_counter > 5) { // TODO make this limit accessable over bot commands?
-                    bot_answer  += '\n';
-                    line_counter =  0;
-                }
-            }
-    
-            // answer should contain the dice rolls; If its empty, the API doesn't send the message to the channel
-            msg.channel.send(bot_answer);
-        }
+        let cmd = bot.commands.get("rolldice"); // TODO check even if its hardcoded? ...
+        let args = user_input.split('w');
+        cmd.run(bot, msg, args);
     }
 })
 
 
-bot.login(token);
+bot.login(Config.token);
