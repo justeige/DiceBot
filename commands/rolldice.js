@@ -6,12 +6,15 @@ exports.run = (bot, msg, args) => {
 
         if (isNaN(dice_count)) { dice_count = 1; } // handle implicit commands like 'w20' as 1W20
 
-        var bot_answer = "";
+        var bot_answer   = "";
         var line_counter = 0;
+        var sum = 0;
 
         for (var i = 0; i < dice_count; i++) {
 
-            bot_answer += Math.floor((Math.random() * dice_sides) + 1);
+            var roll = Math.floor((Math.random() * dice_sides) + 1);
+            bot_answer += roll;
+            sum += roll;
 
             // append a ',' after each number BUT the last:
             if   (i != dice_count - 1) { bot_answer += ', '; }
@@ -23,6 +26,13 @@ exports.run = (bot, msg, args) => {
                 bot_answer  += '\n';
                 line_counter =  0;
             }
+        }
+
+        console.log(bot.dice_sums);
+
+        // add a dice sum if the dice type should behave like this
+        if (bot.dice_sums.indexOf(dice_sides) > -1 && dice_count > 1) {
+            bot_answer += " (= " + sum + ")";
         }
 
         // answer should contain the dice rolls; If its empty, the API doesn't send the message to the channel

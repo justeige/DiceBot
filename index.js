@@ -8,6 +8,7 @@ const bot      = new Discord.Client();
 bot.config     = Config;
 bot.commands   = new Enmap();
 bot.line_width = Config.line_width;
+bot.dice_sums  = [6];
 
 bot.on("ready", () => {
     console.log(`${bot.user.username} is online!`);
@@ -28,6 +29,8 @@ FileSys.readdir("./commands/", (err, files) => {
         bot.commands.set(cmd_name, properties);
     })
 });
+
+
 
 // message handling
 bot.on('message', msg => {
