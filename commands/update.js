@@ -1,4 +1,7 @@
 exports.run = (bot, msg, args) => {
+
+    // TODO check if the udpater is an Admin!
+
     if (!args || args.length < 1) {
         return msg.reply("Welchen Befehl soll ich aktualisieren?")            
     }

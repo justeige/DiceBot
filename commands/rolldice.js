@@ -35,6 +35,11 @@ exports.run = (bot, msg, args) => {
             bot_answer += " (= " + sum + ")";
         }
 
+        // colorfull commentary
+        if (bot_answer.trim() == "20") {
+            return msg.reply("haha, epic fail! 20");
+        }
+
         // answer should contain the dice rolls; If its empty, the API doesn't send the message to the channel
         msg.channel.send(bot_answer);
     } else {

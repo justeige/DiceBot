@@ -3,15 +3,26 @@ const Config  = require("./config.json");
 const FileSys = require("fs");
 const Enmap   = require("enmap");
 
+const Talente = require("./talente.json");
+
 // create the bot via Discords API
 const bot      = new Discord.Client();
 bot.config     = Config;
 bot.commands   = new Enmap();
 bot.line_width = Config.line_width;
 bot.dice_sums  = [6];
+bot.npc_list   = [];
+bot.bank       = new Enmap();
+bot.talente    = Talente;
 
 bot.on("ready", () => {
     console.log(`${bot.user.username} is online!`);
+
+    // let cmd = bot.commands.get("shop");
+    // let args = ["Wilma"];
+    // cmd.run(bot, null, args);
+
+    
 })
 
 // load commands
@@ -40,7 +51,6 @@ bot.on('message', msg => {
     const user_input = msg.content.toLowerCase();
     console.log(`${user_name}: ${user_input}`);
     
-
     // prevent loop effects, so the bot doesn't reply to itself:
     if (user_name == bot.user.username) {
         return;
