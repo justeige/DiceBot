@@ -1,0 +1,348 @@
+{
+    "clientVersion": "1.0.2",
+    "phase": 2,
+    "name": "Jago \"Basiliskenwürger\" Kunzke",
+    "ap": {
+        "total": 1200,
+        "spent": 1200
+    },
+    "el": "EL_4",
+    "r": "R_1",
+    "rv": "RV_1",
+    "c": "C_3",
+    "p": "P_11",
+    "sex": "m",
+    "pers": {},
+    "attr": {
+        "values": [
+            [
+                "ATTR_1",
+                15,
+                0
+            ],
+            [
+                "ATTR_2",
+                10,
+                0
+            ],
+            [
+                "ATTR_3",
+                11,
+                0
+            ],
+            [
+                "ATTR_4",
+                12,
+                0
+            ],
+            [
+                "ATTR_5",
+                10,
+                0
+            ],
+            [
+                "ATTR_6",
+                13,
+                0
+            ],
+            [
+                "ATTR_7",
+                16,
+                1
+            ],
+            [
+                "ATTR_8",
+                15,
+                0
+            ]
+        ],
+        "ae": 0,
+        "kp": 0,
+        "lp": 0,
+        "permanentAE": {
+            "lost": 0,
+            "redeemed": 0
+        },
+        "permanentKP": {
+            "lost": 0,
+            "redeemed": 0
+        }
+    },
+    "activatable": {
+        "ADV_1": [
+            {
+                "tier": 1
+            }
+        ],
+        "ADV_5": [
+            {}
+        ],
+        "ADV_17": [
+            {
+                "sid": "CT_12"
+            }
+        ],
+        "ADV_25": [
+            {
+                "tier": 3
+            }
+        ],
+        "ADV_36": [
+            {
+                "tier": 3
+            }
+        ],
+        "ADV_47": [
+            {
+                "sid": "CT_12"
+            }
+        ],
+        "ADV_66": [
+            {}
+        ],
+        "DISADV_37": [
+            {
+                "sid": 10
+            }
+        ],
+        "DISADV_71": [
+            {}
+        ],
+        "SA_9": [
+            {
+                "sid": "TAL_6",
+                "sid2": 4
+            }
+        ],
+        "SA_16": [
+            {}
+        ],
+        "SA_27": [
+            {
+                "sid": 9
+            }
+        ],
+        "SA_29": [
+            {
+                "sid": 8,
+                "tier": 4
+            },
+            {
+                "sid": 23,
+                "tier": 1
+            },
+            {
+                "sid": 21,
+                "tier": 2
+            },
+            {
+                "sid": 7,
+                "tier": 2
+            }
+        ],
+        "SA_41": [
+            {
+                "tier": 2
+            }
+        ],
+        "SA_48": [
+            {
+                "tier": 1
+            }
+        ],
+        "SA_67": [
+            {
+                "tier": 2
+            }
+        ],
+        "SA_419": [
+            {}
+        ]
+    },
+    "talents": {
+        "TAL_3": 3,
+        "TAL_4": 6,
+        "TAL_5": 12,
+        "TAL_6": 10,
+        "TAL_7": 4,
+        "TAL_8": 4,
+        "TAL_14": 2,
+        "TAL_18": 10,
+        "TAL_20": 2,
+        "TAL_23": 6,
+        "TAL_24": 5,
+        "TAL_27": 1,
+        "TAL_28": 1,
+        "TAL_29": 2,
+        "TAL_30": 8,
+        "TAL_31": 12,
+        "TAL_33": 2,
+        "TAL_34": 4,
+        "TAL_35": 4,
+        "TAL_40": 5,
+        "TAL_51": 2,
+        "TAL_53": 1
+    },
+    "ct": {
+        "CT_5": 10,
+        "CT_7": 12,
+        "CT_9": 8,
+        "CT_10": 14,
+        "CT_12": 15,
+        "CT_16": 10
+    },
+    "spells": {},
+    "cantrips": [],
+    "liturgies": {},
+    "blessings": [],
+    "belongings": {
+        "items": {
+            "ITEM_1": {
+                "id": "ITEM_1",
+                "name": "Langschwert",
+                "template": "ITEMTPL_35",
+                "gr": 1,
+                "price": 200,
+                "weight": 1,
+                "where": "",
+                "combatTechnique": "CT_12",
+                "damageDiceNumber": 1,
+                "damageDiceSides": 6,
+                "damageFlat": 4,
+                "at": 0,
+                "pa": 0,
+                "reach": 2,
+                "length": 100,
+                "isParryingWeapon": false,
+                "isTwoHanded": false,
+                "amount": 1,
+                "damageBonus": {
+                    "threshold": 15
+                },
+                "isTemplateLocked": true,
+                "src": [
+                    {
+                        "id": "US25001",
+                        "page": 368
+                    },
+                    {
+                        "id": "US25208",
+                        "page": 75
+                    }
+                ]
+            },
+            "ITEM_2": {
+                "id": "ITEM_2",
+                "name": "Kleidungsset: Niederadel",
+                "template": "ITEMTPL_140",
+                "gr": 6,
+                "price": 150,
+                "where": "",
+                "amount": 1,
+                "isTemplateLocked": true,
+                "src": [
+                    {
+                        "id": "US25001",
+                        "page": 375
+                    }
+                ]
+            },
+            "ITEM_3": {
+                "id": "ITEM_3",
+                "name": "Leichte Platte",
+                "note": "Die leichte Platte ist eine Variante der Plattenrüstung.",
+                "advantage": "Gegen Waffen der Kampftechniken Dolche und Fechtwaffen schützt die Leichte Platte mit RS 7.",
+                "disadvantage": "Gegenüber Angriffen von hinten schützt die Leichte Platte nur mit einem RS von 1.",
+                "template": "ITEMTPL_470",
+                "gr": 4,
+                "price": 400,
+                "weight": 15,
+                "where": "",
+                "pro": 6,
+                "enc": 3,
+                "addPenalties": false,
+                "armorType": 8,
+                "amount": 1,
+                "isTemplateLocked": true,
+                "src": [
+                    {
+                        "id": "US25208",
+                        "page": 109
+                    }
+                ]
+            },
+            "ITEM_4": {
+                "id": "ITEM_4",
+                "name": "Großschild",
+                "note": "großer Schild, 30 Strukturpunkte; zusätzlich –1 AT auf die Hauptwaffe",
+                "advantage": "Bei der Abwehr von Pfeilen und Bolzen bekommt der Großschild einen Bonus von +1 PA (nach der Verdopplung des Schild-Paradebonus).",
+                "disadvantage": "Verfügen zwei Kämpfer über den gleichen INI-Wert, schlägt der Gegner des Trägers eines Großschildes immer zuerst zu. Führt der Gegner ebenfalls einen Großschild, kommen die normalen Regeln zur Reihenfolge des Handelns (siehe **Regelwerk** Seite **227**) zum Tragen.\nDer Träger eines Großschilds erleidet einen Abzug von 1 auf GS.",
+                "template": "ITEMTPL_29",
+                "gr": 1,
+                "price": 100,
+                "weight": 6,
+                "where": "",
+                "combatTechnique": "CT_10",
+                "damageDiceNumber": 1,
+                "damageDiceSides": 6,
+                "damageFlat": 1,
+                "at": -6,
+                "pa": 3,
+                "reach": 1,
+                "length": 0,
+                "isParryingWeapon": false,
+                "isTwoHanded": false,
+                "amount": 1,
+                "damageBonus": {
+                    "threshold": 16
+                },
+                "isTemplateLocked": true,
+                "src": [
+                    {
+                        "id": "US25001",
+                        "page": 367
+                    },
+                    {
+                        "id": "US25208",
+                        "page": 67
+                    }
+                ]
+            },
+            "ITEM_5": {
+                "id": "ITEM_5",
+                "name": "Waffenpflegeset (Schleifstein, Tücher)",
+                "template": "ITEMTPL_93",
+                "gr": 5,
+                "price": 1,
+                "weight": 1,
+                "where": "",
+                "amount": 1,
+                "isTemplateLocked": true,
+                "src": [
+                    {
+                        "id": "US25001",
+                        "page": 374
+                    }
+                ]
+            }
+        },
+        "armorZones": {},
+        "purse": {
+            "d": "0",
+            "h": "0",
+            "k": "0",
+            "s": "0"
+        }
+    },
+    "rules": {
+        "higherParadeValues": 0,
+        "attributeValueLimit": false,
+        "enableAllRuleBooks": true,
+        "enableLanguageSpecializations": false,
+        "enabledRuleBooks": []
+    },
+    "pets": {},
+    "id": "H_1618073415995",
+    "dateCreated": "2021-04-10T17:15:33.999Z",
+    "dateModified": "2021-04-10T17:21:31.134Z"
+}

@@ -1,6 +1,7 @@
-exports.run = (bot, msg, args) => {
+exports.run = (bot, msg, args, user_name) => {
     // sanity check
     if (args.length == 2) {
+
         var   dice_count = parseInt(args[0].trim()); // how many dice?
         const dice_sides = parseInt(args[1].trim()); // how many sides?
 
@@ -28,8 +29,6 @@ exports.run = (bot, msg, args) => {
             }
         }
 
-        console.log(bot.dice_sums);
-
         // add a dice sum if the dice type should behave like this
         if (bot.dice_sums.indexOf(dice_sides) > -1 && dice_count > 1) {
             bot_answer += " (= " + sum + ")";
@@ -41,7 +40,7 @@ exports.run = (bot, msg, args) => {
         }
 
         // answer should contain the dice rolls; If its empty, the API doesn't send the message to the channel
-        msg.channel.send(bot_answer);
+        msg.channel.send(msg.author.username + " => " + bot_answer);
     } else {
         console.error(`regex failed for the dice check? Input: ${msg.content}`)
     }
